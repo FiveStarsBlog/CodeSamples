@@ -1,4 +1,4 @@
-Code sample from [Flexible SwiftUI][fs].
+Proof of concept from [Flexible SwiftUI][fs].
 
 ![][gif]
 
