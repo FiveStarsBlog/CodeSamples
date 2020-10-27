@@ -1,4 +1,4 @@
-Code snippet from [Hashable SwiftUI Bindings][fs].
+Code snippet from [Hashable SwiftUI bindings][fs].
 
 ![][gif]
 
