@@ -1,4 +1,4 @@
-Final project from [Displaying text in SwiftUI views][fs].
+Final project from [Displaying text in SwiftUI][fs].
 
 ![][buttons]
 
