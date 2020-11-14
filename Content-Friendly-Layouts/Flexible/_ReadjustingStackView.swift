@@ -14,16 +14,16 @@ struct _ReadjustingStackView<Data: RandomAccessCollection, Content: View>: View 
   var body : some View {
     if isHorizontal() {
       HStack(spacing: spacing) {
-        contentGroup
+        elementsViews
       }
     } else {
       VStack(spacing: spacing) {
-        contentGroup
+        elementsViews
       }
     }
   }
 
-  var contentGroup: some View {
+  var elementsViews: some View {
     ForEach(data, id: \.self) { element in
       content(element)
         .fixedSize()
@@ -34,16 +34,11 @@ struct _ReadjustingStackView<Data: RandomAccessCollection, Content: View>: View 
   }
 
   func isHorizontal() -> Bool {
-    var remainingWidth = availableWidth
-
-    for element in data {
+    let desiredStackViewWidth = data.reduce(into: 0) { totalWidth, element in
       let elementSize = elementsSize[element, default: CGSize(width: availableWidth, height: 1)]
-      remainingWidth = remainingWidth - (elementSize.width + spacing)
+      totalWidth += elementSize.width
+    } + CGFloat(data.count - 1) * spacing
 
-      if remainingWidth < 0 {
-        return false
-      }
-    }
-    return true
+    return availableWidth >= desiredStackViewWidth
   }
 }
