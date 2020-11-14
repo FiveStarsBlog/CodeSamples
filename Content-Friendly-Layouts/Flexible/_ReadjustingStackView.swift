@@ -2,8 +2,7 @@
 
 import SwiftUI
 
-/// This view is responsible to lay down the given elements and wrap them into
-/// multiple rows if needed.
+/// This view is responsible to lay the given elements in either axis.
 struct _ReadjustingStackView<Data: RandomAccessCollection, Content: View>: View where Data.Element: Hashable {
   let availableWidth: CGFloat
   let data: Data

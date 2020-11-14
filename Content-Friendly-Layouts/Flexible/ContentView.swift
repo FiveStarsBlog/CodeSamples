@@ -9,7 +9,6 @@ class ContentViewModel: ObservableObject {
   ]
 
   @Published var spacing: CGFloat = 8
-  @Published var padding: CGFloat = 8
   @Published var wordCount: Int = 5
 
   var words: [String] {
@@ -21,7 +20,7 @@ struct ContentView: View {
   @StateObject var model = ContentViewModel()
 
   var body: some View {
-    ScrollView {
+    VStack {
       ReadjustingStackView(data: model.words, spacing: model.spacing) { item in
         Text(verbatim: item)
           .padding(8)
@@ -30,26 +29,21 @@ struct ContentView: View {
               .fill(Color.gray.opacity(0.2))
            )
       }
-      .border(Color.black)
-      .padding(.horizontal, model.padding)
+//      .border(Color.black)
+      .padding(.horizontal)
     }
+    .frame(maxHeight: .infinity)
     .overlay(Settings(model: model), alignment: .bottom)
   }
 }
 
 struct Settings: View {
   @ObservedObject var model: ContentViewModel
-  let alignmentName: [String] = ["leading", "center", "trailing"]
 
   var body: some View {
     VStack {
       Stepper(value: $model.wordCount, in: 0...model.originalItems.count) {
         Text("\(model.wordCount) words")
-      }
-
-      HStack {
-        Text("Padding")
-        Slider(value: $model.padding, in: 0...60) { Text("") }
       }
 
       HStack {

@@ -3,7 +3,7 @@
 import SwiftUI
 
 /// Facade of our view, its main responsibility is to get the available width
-/// and pass it down to the real implementation, `_FlexibleView`.
+/// and pass it down to the real implementation, `_ReadjustingStackView`.
 struct ReadjustingStackView<Data: RandomAccessCollection, Content: View>: View where Data.Element: Hashable {
   let data: Data
   let spacing: CGFloat
