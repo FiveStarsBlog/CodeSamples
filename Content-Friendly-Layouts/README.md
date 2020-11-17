@@ -1,12 +1,6 @@
-Proof of concept from [Flexible SwiftUI][fs].
+Proof of concept from [Build content-friendly layouts][fs].
 
 ![][gif]
 
-## Credits
-
-This article and code is inspired by [Mauricio Meirelles][mmtw]'s [GridView][gv].
-
-[fs]: https://fivestars.blog/swiftui/flexible-swiftui.html
-[gif]: flexible.gif
-[mmtw]: https://twitter.com/MauricioM
-[gv]: https://github.com/mauriciomeirelles/GridView
+[fs]: https://fivestars.blog/ios/content-friendly-layouts.html
+[gif]: content-friendly.gif
