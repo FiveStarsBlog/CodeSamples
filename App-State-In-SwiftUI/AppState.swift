@@ -49,12 +49,12 @@ struct ContentView: View {
 }
 
 struct HomeView: View {
-  @EnvironmentObject var state: AppStateContainer
+  @EnvironmentObject var container: AppStateContainer
 
   var body: some View {
     VStack {
       Button("go to settings") {
-        state.tabViewState.selectedTab = .settings
+        container.tabViewState.selectedTab = .settings
       }
       Text("Home")
     }
