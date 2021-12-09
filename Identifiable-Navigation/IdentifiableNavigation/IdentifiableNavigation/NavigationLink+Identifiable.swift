@@ -2,6 +2,10 @@
 
 import SwiftUI
 
+/// The extension from the article broke in Xcode 12.5 and no longer work
+/// properly.
+///
+/// This updated extension is uglier but works as expected.
 extension NavigationLink where Label == EmptyView, Destination == AnyView {
   public init<V: Identifiable, Destination2: View>(
     item: Binding<V?>,
