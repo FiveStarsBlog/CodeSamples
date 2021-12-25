@@ -28,7 +28,7 @@ struct FileItem: Identifiable {
 }
 
 struct ContentView: View {
-  let data: [FileItem] = .spmData
+  let data: [FileItem] = FileItem.spmData
 
   var body: some View {
 //    List(data, children: \.children, rowContent: { Text($0.name) })
