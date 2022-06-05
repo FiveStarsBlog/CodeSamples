@@ -9,7 +9,9 @@ struct FlexibleView<Data: Collection, Content: View>: View where Data.Element: H
   let spacing: CGFloat
   let alignment: HorizontalAlignment
   let content: (Data.Element) -> Content
-  @State private var availableWidth: CGFloat = 0
+  // The initial width should not be `0`, otherwise all items will be layouted in one row,
+  // and the actual layout width may exceed the value we desired.
+  @State private var availableWidth: CGFloat = 10
 
   var body: some View {
     ZStack(alignment: Alignment(horizontal: alignment, vertical: .center)) {
